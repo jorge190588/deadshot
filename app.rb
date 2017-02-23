@@ -1,6 +1,8 @@
 require 'sinatra'
 require_relative 'lib/juego.rb'
 
+@@juego = Juego.new
+
 get '/' do
 
 	erb :"juego"
@@ -10,7 +12,7 @@ end
 get '/disparar' do
 	
   	posicion = params["p"].to_i
-	@@juego = Juego.new
+	
 	
 	@resultado = ""
 	if (@@juego.disparar(posicion)==true)
