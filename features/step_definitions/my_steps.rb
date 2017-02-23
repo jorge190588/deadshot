@@ -10,11 +10,14 @@ Then(/^debe decir "(.*?)"$/) do |titulo|
 end
 
 
-When(/^disparo a "(.*?)"$/) do |posicion|
-  
+When(/^disparo a "(.*?)"$/) do |url|
+  click_link(url)
 end
 
-Then(/^debe resultar "(.*?)"$/) do |posicion|
-  
+Then(/^debe resultar "(.*?)"$/) do |resultado|
+  last_response.body.should =~ /#{resultado}/m
 end
 
+When(/^dispado a "(.*?)"$/) do |url|
+    click_link(url)
+end

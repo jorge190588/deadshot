@@ -1,24 +1,22 @@
 require 'sinatra'
 require_relative 'lib/juego.rb'
 
-@@juego = Juego.new
 
 get '/' do
-
-	erb :"juego"
-    
+	@@juego = Juego.new
+	erb :"juego"    
 end
 
 get '/disparar' do
 	
   	posicion = params["p"].to_i
-	
-	
-	@resultado = ""
-	if (@@juego.disparar(posicion)==true)
+	disparo= @@juego.disparar(posicion)
+	if (disparo==true)
 		@resultado = "GANASTE"
-	else	
-		@resultado="PERDISTE"
+	elsif (disparo==false)
+		@resultado="INTENTA DE NUEVO"
+	else
+		@resultado="GAME OVER"
 	end
 	erb :"juego"
 end
