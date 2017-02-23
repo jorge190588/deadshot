@@ -2,7 +2,7 @@ require 'sinatra'
 require_relative 'lib/juego.rb'
 
 get '/' do
-	@@juego = Juego.new
+	@@juego = Juego.new 1
 	@nPosiciones = 5
 	erb :"juego"    
 end
@@ -16,7 +16,7 @@ get '/disparar' do
 	elsif (disparo==false)
 		@resultado="<i class='glyphicon glyphicon-warning-sign'></i> INTENTA DE NUEVO"
 	else
-		@resultado="GAME OVER"
+		@resultado="GAME OVER, POSICION DE EXITO #{ @@juego.posicion_exito }"
 	end
 	erb :"juego"
 end

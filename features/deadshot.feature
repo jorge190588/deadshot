@@ -21,15 +21,8 @@ Scenario: Disparar a posicion 2 una vez y posicion 1 una vez
 	And disparo a "1"
 	Then debe resultar "GANASTE"
 
-Scenario: Disparar a posicion 2 tres veces
+Scenario: Disparar a posicion 2 dos veces
 	Given voy al juego
 	When disparo a "2"
 	And disparo a "2"
-	Then debe resultar "GAME OVER"
-
-Scenario: Disparar a posicion 2 tres veces
-	Given voy al juego
-	When disparo a "2"
-	And disparo a "2"
-	And disparo a "2"
-	Then debe resultar "GAME OVER"
+	Then debe resultar "GAME OVER, POSICION DE EXITO 1"
