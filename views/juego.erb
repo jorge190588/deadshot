@@ -14,25 +14,27 @@
 
 		<h1><i class="glyphicon glyphicon-screenshot"></i> Deadshot</h1>
 
-		<h2>Intentos <%= @@juego.contador_intentos  %> de  <%= @@juego.total_intentos  %></h2>
-
-		<h2 class="cen">Haga clic a la posición que quiere disparar</h2>
-
-		<table id="tbl" width="80%" align="center" cellpadding="20" cellspacing="5" border="0">
-			<tr>
-				<td class="warning"> <a href="/disparar?p=1" class="btn btn-lg btn-info">1</a></td>
-				<td class="warning"> <a href="/disparar?p=2" class="btn btn-lg btn-info">2</a></td>
-				<td class="warning"> <a href="/disparar?p=3" class="btn btn-lg btn-info">3</a></td>
-				<td class="warning"> <a href="/disparar?p=4" class="btn btn-lg btn-info">4</a></td>		
-				<td class="warning"> <a href="/disparar?p=5" class="btn btn-lg btn-info">5</a></td>
-			</tr>
-		</table>
-		
-		<hr />
+		<div class="<%= @hideJuego %>">
+			<h2>Intentos <%= @@juego.contador_intentos  %> de  <%= @@juego.total_intentos  %></h2>
 	
+			<h2 class="cen">Haga clic a la posición que quiere disparar</h2>
+
+			<table id="tbl" width="80%" align="center" cellpadding="20" cellspacing="5" border="0">
+				<tr>
+					<td class="warning"> <a href="/disparar?p=1" class="btn btn-lg btn-info">1</a></td>
+					<td class="warning"> <a href="/disparar?p=2" class="btn btn-lg btn-info">2</a></td>
+					<td class="warning"> <a href="/disparar?p=3" class="btn btn-lg btn-info">3</a></td>
+					<td class="warning"> <a href="/disparar?p=4" class="btn btn-lg btn-info">4</a></td>		
+					<td class="warning"> <a href="/disparar?p=5" class="btn btn-lg btn-info">5</a></td>
+				</tr>
+			</table>
+		</div>		
+		<hr />
 		<div class="alert alert-warning cen">
 			<h2 class="resultado"><%= @resultado %></h2>
+			<h2 class="<%= @hideMsg %>"><a href="/">Jugar de nuevo</a></h2>
 		</div>
+		
 	</div>
 
 </body>
