@@ -10,10 +10,10 @@ end
 get '/disparar' do
 	
   	posicion = params["p"].to_i
-	@@juego = Juego.new
+	@juego = Juego.new
 	
 	@resultado = ""
-	if (@@juego.disparar(posicion)==true)
+	if (@juego.disparar(posicion)==true)
 		@resultado = "GANASTE"
 	else	
 		@resultado="PERDISTE"
