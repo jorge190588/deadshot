@@ -11,6 +11,8 @@ class Juego
 			@contador_intentos += 1
 			if (posicion == 1)
 				return true
+			elsif (@contador_intentos==@total_intentos)
+				return -1
 			else
 				return false
 			end
