@@ -2,7 +2,7 @@ require 'sinatra'
 require_relative 'lib/juego.rb'
 
 get '/' do
-	@@juego = Juego.new 1
+	@@juego = Juego.new 0
 	@nPosiciones = 5
 	@hideMsg = "hidden"
 	erb :"juego"    
