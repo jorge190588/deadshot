@@ -3,6 +3,9 @@ require_relative 'lib/juego.rb'
 
 get '/' do
 
+	@nPosiciones = 5
+
+
 	erb :"juego"
     
 end
@@ -14,9 +17,9 @@ get '/disparar' do
 	
 	@resultado = ""
 	if (@juego.disparar(posicion)==true)
-		@resultado = "GANASTE"
+		@resultado = "<i class='glyphicon glyphicon-glass'></i> GANASTE"
 	else	
-		@resultado="PERDISTE"
+		@resultado="<i class='glyphicon glyphicon-warning-sign'></i> PERDISTE"
 	end
 	erb :"juego"
 end
