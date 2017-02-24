@@ -24,7 +24,8 @@ get '/dosjugadores' do
 	@hideMsg = "hidden"
 	@alerta = "default"
 	@posicion = 0
-	@@turnoPara = "a"
+	
+	@@turnoPara = ""
 	erb :"dosjugadores"
 end
 

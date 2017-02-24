@@ -6,6 +6,8 @@
 			table.tbl a { display:block; width: 98%; height: 50px; font-size: 2em !important; text-align: center; }
 			.cen { text-align: center; }
 			.resultado { font-size: 2em; }
+
+			#sorteo a { display:block; width: 98%; height: 100px; font-size: 3em !important; text-align: center; }
 		</style>
 
 		<script
@@ -36,24 +38,57 @@
 		<div class="<%= @hideJuego %>">
 
 	
-				<% if @@turnoPara == "a"
+				<% 
+					@msgSorteo = "hidden"
+					if @@turnoPara == "a"
 							@mostrarA = "hidden"
 							@mostrarB = ""
 							@lblDispara = "A"
 							@lblRecibe = "B"
-					else
+					elsif @@turnoPara == "b"
 							@mostrarA = ""
 							@mostrarB = "hidden"
 							@lblDispara = "B"
 							@lblRecibe = "A"
+					else
+							@mostrarA = "hidden"
+							@mostrarB = "hidden"
+							@msgSorteo = ""
+							@msgTurno = "hidden"
+
 					end						
 
 				%>
 
-		
-			<h2 class="cen">Turno para <%= @lblDispara  %> </h2>
-			<h3 class="cen">Dispárale a <%= @lblRecibe %></h2>
-	
+			<div id="sorteo" class="<%= @msgSorteo %>">
+
+				<div class="panel panel-warning">
+					<div class="panel-heading">Elija quien inicia el juego:</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-2">
+								<a href="/unjugador" class="btn btn-lg btn-info">
+									<i class="glyphicon glyphicon-user"></i>Jugador A
+								</a>
+							</div>
+							<div class="col-xs-4">
+								<a href="/dosjugadores" class="btn btn-lg btn-warning">
+									<i class="glyphicon glyphicon-user"></i>Jugador B
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+					
+			</div>
+
+
+
+		  <div class="<%= @msgTurno %>"
+				<h2 class="cen">Turno para <%= @lblDispara  %> </h2>
+				<h3 class="cen">Dispárale a <%= @lblRecibe %></h2>
+			</div>
+
 			<div class="panel panel-info <%= @mostrarA %>" >
 			  <div class="panel-heading">Jugador A: le disparo B <%= @@juego_a.contador_intentos %> vece(s) de <%= @@juego_a.total_intentos %></div>
 				  <div class="panel-body">
