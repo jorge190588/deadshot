@@ -16,7 +16,18 @@ get '/unjugador' do
 	erb :"juego" 
 end
 
-get '/dosjugadores' do
+get '/dosjugadores/:jugadorinicia' do
+
+	@jugador_inicia = params["jugadorinicia"].to_s
+	if (@jugador_inicia=="a")
+		@@turnoPara = "a"
+	elsif (@jugador_inicia=="b")
+		@@turnoPara = "b"
+	else
+		@@turnoPara = ""
+	end
+
+
 	#parametro, 1ro = posicion, 2do = intentos
 	@@juego_a = Juego.new 1,5
 	@@juego_b = Juego.new 1,5
@@ -24,8 +35,6 @@ get '/dosjugadores' do
 	@hideMsg = "hidden"
 	@alerta = "default"
 	@posicion = 0
-	
-	@@turnoPara = ""
 	erb :"dosjugadores"
 end
 
