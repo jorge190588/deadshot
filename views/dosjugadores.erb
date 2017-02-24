@@ -48,7 +48,7 @@
 								end
 							%>
 							<td class="warning"> 
-								<a href="/dosjugadores/disparar?posicion=<%= i %>&jugador=a" class="btn btn-lg btn-info <%= @activo %>">
+								<a href="/dosjugadores/disparar/<%= i %>/a" class="btn btn-lg btn-info <%= @activo %>">
 									<%= i %>
 								</a>
 							</td>
@@ -72,7 +72,7 @@
 									end
 								%>
 								<td class="warning"> 
-									<a href="/dosjugadores/disparar?posicion=<%= i %>&jugador=b" class="btn btn-lg btn-warning <%= @activo %>">
+									<a href="/dosjugadores/disparar/<%= i %>/b" class="btn btn-lg btn-warning <%= @activo %>">
 										<%= i %>
 									</a>
 								</td>
@@ -88,7 +88,6 @@
 		<hr />
 		<div class="alert alert-<%= @alerta %> cen">
 			<h2 class="resultado"><%= @resultado %></h2>
-			<h2 class="<%= @hideMsg %>"><a href="/">Jugar de nuevo</a></h2>
 		</div>
 		
 	</div>

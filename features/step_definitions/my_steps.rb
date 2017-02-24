@@ -1,6 +1,4 @@
 
-
-
 Given(/^voy al juego$/) do
    visit '/unjugador'
 end
@@ -21,3 +19,12 @@ end
 When(/^dispado a "(.*?)"$/) do |url|
     click_link(url)
 end
+
+Given(/^voy al juego en modo dos jugadores$/) do
+  visit '/dosjugadores'
+end
+
+When(/^el jugador A dispara al jugador "(.*?)" en la posicion (\d+)$/) do |jugador_objetivo, posicion_disparar|
+  visit "/dosjugadores/disparar/#{posicion_disparar}/#{jugador_objetivo}"
+end
+

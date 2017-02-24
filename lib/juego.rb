@@ -8,11 +8,10 @@ class Juego
 			return -1
 		else
 			@contador_intentos += 1
-			if (posicion == @posicion_exito)
-				
+			if (posicion.to_i == @posicion_exito)	
 				return true
-			elsif (@contador_intentos==@total_intentos)
-				return -1			
+			elsif (@contador_intentos == @total_intentos)
+				return -1
 			else
 				return false
 			end

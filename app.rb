@@ -26,29 +26,32 @@ get '/dosjugadores' do
 	erb :"dosjugadores"
 end
 
-get '/dosjugadores/disparar' do
+get '/dosjugadores/disparar/:posicion/:jugador' do
 	@posicion = params["posicion"].to_s
 	@jugador_objetivo = params["jugador"].to_s
 	@jugador_disparo = ""
 	
-	if (@jugador_objetivo == "a")
-		disparo= @@juego_a.disparar(@posicion)
+	if (@jugador_objetivo=="a")
+		disparo= @@juego_a.disparar(@posicion)	
 		@jugador_disparo = "b"
-	elsif (@jugador_objetivo == "b")
-		disparo= @@juego_b.disparar(@posicion)
+	elsif (@jugador_objetivo=="b")
+		disparo= @@juego_b.disparar(@posicion)	
 		@jugador_disparo = "a"
 	end
-
+	
 	if (disparo==true)
-		@resultado = "<i class='glyphicon glyphicon-glass'></i> GANO #{ @jugador_disparo }" 
+		@resultado = "<i class='glyphicon glyphicon-glass'></i>GANO EL JUGADOR #{@jugador_disparo.upcase}"
 		@hideJuego = "hidden"
 		@hideMsg = ""
 		@alerta = "success"
-		"disparo verdadero"
-	else
-		"disparo #{ disparo }, #{ @@juego_a.posicion_exito }, jugador objetivo #{ @jugador_objetivo }, jugador que disparo #{@jugador_disparo} "
+	elsif (disparo==false)
+		@resultado="<i class='glyphicon glyphicon-warning-sign'></i>INTENTA DE NUEVO JUGADOR #{@jugador_disparo.upcase }"
+		@hideJuego = ""
+		@hideMsg = ""
+		@alerta = "warning"
 	end
 
+	erb :"dosjugadores"
 end
 
 get '/unjugador/disparar' do
@@ -57,7 +60,7 @@ get '/unjugador/disparar' do
 	disparo= @@juego.disparar(@posicion)
 	
 	if (disparo==true)
-		@resultado = "<i class='glyphicon glyphicon-glass'></i> GANASTE"
+		@resultado = "<i class='glyphicon glyphicon-glass'></i>GANASTE"
 		@hideJuego = "hidden"
 		@hideMsg = ""
 		@alerta = "success"
