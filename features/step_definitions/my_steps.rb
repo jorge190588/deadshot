@@ -24,3 +24,7 @@ Given(/^voy al juego en modo dos jugadores con opcion de inicio "(.*?)"$/) do |o
   visit "/dosjugadores/#{opcion_inicio}"
 end
 
+When(/^disparar a "(.*?)" a la posicion "(.*?)"$/) do |jugador_objetivo, posicion_disparo|
+  visit "/dosjugadores/disparar/#{posicion_disparo}/#{jugador_objetivo}"
+end
+
