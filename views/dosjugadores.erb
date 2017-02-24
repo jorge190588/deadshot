@@ -18,8 +18,7 @@
 <body>
 
 	<div class="container">
-
-		<h1><i class="glyphicon glyphicon-screenshot"></i> Deadshot, 2 jugadores</h1>
+	
 		<div class="pull-right">
 			<span type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
 			   <i class="glyphicon glyphicon-question-sign"></i> Instrucciones
@@ -31,10 +30,31 @@
 
 		</div>
 
+		<h1><i class="glyphicon glyphicon-screenshot"></i> Deadshot, 2 jugadores</h1>
+		
+	<hr />
 		<div class="<%= @hideJuego %>">
 
 	
-			<div class="panel panel-info">
+				<% if @@turnoPara == "a"
+							@mostrarA = "hidden"
+							@mostrarB = ""
+							@lblDispara = "A"
+							@lblRecibe = "B"
+					else
+							@mostrarA = ""
+							@mostrarB = "hidden"
+							@lblDispara = "B"
+							@lblRecibe = "A"
+					end						
+
+				%>
+
+		
+			<h2 class="cen">Turno para <%= @lblDispara  %> </h2>
+			<h3 class="cen">Dispárale a <%= @lblRecibe %></h2>
+	
+			<div class="panel panel-info <%= @mostrarA %>" >
 			  <div class="panel-heading">Jugador A: le disparo B <%= @@juego_a.contador_intentos %> vece(s) de <%= @@juego_a.total_intentos %></div>
 				  <div class="panel-body">
 					<table id="tbl1" class="tbl" width="100%" align="center" cellpadding="20" cellspacing="5" border="0">
@@ -58,7 +78,7 @@
 				</div>
 			</div>
 			<hr />
-		<div class="panel panel-warning">
+		<div class="panel panel-warning <%= @mostrarB %>">
 			  <div class="panel-heading">Jugador B: le disparo A <%= @@juego_b.contador_intentos %> vece(s) de <%= @@juego_b.total_intentos %></div>
 				  <div class="panel-body">
 						<table id="tbl2" class="tbl" width="100%" align="center" cellpadding="20" cellspacing="5" border="0">

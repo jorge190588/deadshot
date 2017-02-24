@@ -24,6 +24,7 @@ get '/dosjugadores' do
 	@hideMsg = "hidden"
 	@alerta = "default"
 	@posicion = 0
+	@@turnoPara = "a"
 	erb :"dosjugadores"
 end
 
@@ -31,6 +32,8 @@ get '/dosjugadores/disparar/:posicion/:jugador' do
 	@posicion = params["posicion"].to_s
 	@jugador_objetivo = params["jugador"].to_s
 	@jugador_disparo = ""
+	@@turnoPara = @jugador_objetivo
+
 	
 	if (@jugador_objetivo == "a")
 		disparo= @@juego_a.disparar(@posicion)		
@@ -52,6 +55,8 @@ get '/dosjugadores/disparar/:posicion/:jugador' do
 		@alerta = "warning"
 	end
 
+
+	
 	erb :"dosjugadores"
 end
 
