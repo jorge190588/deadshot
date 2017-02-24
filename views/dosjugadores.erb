@@ -41,7 +41,7 @@
 						<tr>
 
 							<% for i in 1..@@nPosiciones 
-								if i == @posicion
+								if @@juego_a.leer(@posicion) == 1
 									@activo = "disabled"
 								else
 									@activo = ""
@@ -65,7 +65,7 @@
 							<tr>
 
 								<% for i in 1..@@nPosiciones 
-									if i == @posicion
+									if @@juego_a.leer(@posicion) == 1
 										@activo = "disabled"
 									else
 										@activo = ""

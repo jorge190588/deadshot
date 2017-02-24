@@ -1,7 +1,22 @@
 class Juego
+	
 	def initialize posicion_exito,numero_intentos
 		iniciar posicion_exito,numero_intentos
+
+		@disparos = [0,0,0,0,0,0]
+		
 	end
+
+	def marcar posicion 
+		@disparos[posicion.to_i] = 1
+	end
+	
+	def leer posicion 
+		return @disparos[posicion.to_i]
+	end
+
+
+	
 
 	def disparar posicion
 		if (@contador_intentos >= @total_intentos)
@@ -16,6 +31,7 @@ class Juego
 				return false
 			end
 		end
+		@disparos[posicion.to_i] = 1
 	end
 	
 	def contador_intentos 
