@@ -12,13 +12,15 @@ class Juego
 	end
 	
 	def leer posicion 
-		return @disparos[posicion.to_i]
+		return @disparos[posicion.to_i].to_i
 	end
 
 
 	
 
 	def disparar posicion
+		@disparos[posicion.to_i] = 1
+
 		if (@contador_intentos >= @total_intentos)
 			return -1
 		else
@@ -31,7 +33,7 @@ class Juego
 				return false
 			end
 		end
-		@disparos[posicion.to_i] = 1
+		
 	end
 	
 	def contador_intentos 
