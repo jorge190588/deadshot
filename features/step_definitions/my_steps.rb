@@ -28,3 +28,6 @@ When(/^el jugador A dispara al jugador "(.*?)" en la posicion (\d+)$/) do |jugad
   visit "/dosjugadores/disparar/#{posicion_disparar}/#{jugador_objetivo}"
 end
 
+When(/^el jugador B dispara al jugador "(.*?)" en la posicion (\d+)$/) do |jugador_objetivo, posicion_disparar|
+    visit "/dosjugadores/disparar/#{posicion_disparar}/#{jugador_objetivo}"
+end
