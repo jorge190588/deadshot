@@ -10,5 +10,12 @@ Scenario: Modo de dos jugadores, disparar el jugador A, en posicion 1
 	When el jugador A dispara al jugador "b" en la posicion 1
 	Then debe decir "GANO EL JUGADOR A"
 
+Scenario: Modo de dos jugadores, disparar el jugador A, en posicion 2
+	Given voy al juego en modo dos jugadores
+	When el jugador A dispara al jugador "b" en la posicion 2
+	Then debe decir "OH OH FALLASTE!!!, ES TURNO DE B"
+
+ 
+
 
 
