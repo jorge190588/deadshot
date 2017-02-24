@@ -15,7 +15,14 @@ get '/unjugador' do
 end
 
 get '/dosjugadores' do
-  "Dos jugadores"
+
+	#parametro, 1ro = posicion, 2do = intentos
+	@@juego = Juego.new 1,5
+	@@nPosiciones = 5
+	@hideMsg = "hidden"
+	@alerta = "default"
+  erb	:"dosjugadores"
+
 end
 
 get '/unjugador/disparar' do
