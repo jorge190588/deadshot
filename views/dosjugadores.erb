@@ -3,7 +3,7 @@
 		<title>Deadshot</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<style type="text/css">
-			table.tbl a { display:block; width: 98%; height: 100px; font-size: 3em !important; text-align: center; }
+			table.tbl a { display:block; width: 98%; height: 50px; font-size: 2em !important; text-align: center; }
 			.cen { text-align: center; }
 			.resultado { font-size: 2em; }
 		</style>
@@ -32,10 +32,10 @@
 		</div>
 
 		<div class="<%= @hideJuego %>">
-			<h2>Intentos <%= @@juego.contador_intentos  %> de  <%= @@juego.total_intentos  %></h2>
+
 	
 			<div class="panel panel-info">
-			  <div class="panel-heading">Jugador A:</div>
+			  <div class="panel-heading">Jugador A: le disparo B <%= @@juego_a.contador_intentos %> vece(s) de <%= @@juego_a.total_intentos %></div>
 				  <div class="panel-body">
 					<table id="tbl1" class="tbl" width="100%" align="center" cellpadding="20" cellspacing="5" border="0">
 						<tr>
@@ -48,7 +48,7 @@
 								end
 							%>
 							<td class="warning"> 
-								<a href="/dosjugadores/disparar?posicion=<%= i %>%jugador=a" class="btn btn-lg btn-info <%= @activo %>">
+								<a href="/dosjugadores/disparar?posicion=<%= i %>&jugador=a" class="btn btn-lg btn-info <%= @activo %>">
 									<%= i %>
 								</a>
 							</td>
@@ -59,7 +59,7 @@
 			</div>
 			<hr />
 		<div class="panel panel-warning">
-			  <div class="panel-heading">Jugador B:</div>
+			  <div class="panel-heading">Jugador B: le disparo A <%= @@juego_b.contador_intentos %> vece(s) de <%= @@juego_b.total_intentos %></div>
 				  <div class="panel-body">
 						<table id="tbl2" class="tbl" width="100%" align="center" cellpadding="20" cellspacing="5" border="0">
 							<tr>
@@ -72,7 +72,7 @@
 									end
 								%>
 								<td class="warning"> 
-									<a href="/dosjugadores/disparar?posicion=<%= i %>%jugador=b" class="btn btn-lg btn-warning <%= @activo %>">
+									<a href="/dosjugadores/disparar?posicion=<%= i %>&jugador=b" class="btn btn-lg btn-warning <%= @activo %>">
 										<%= i %>
 									</a>
 								</td>

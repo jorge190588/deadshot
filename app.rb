@@ -18,37 +18,35 @@ end
 
 get '/dosjugadores' do
 	#parametro, 1ro = posicion, 2do = intentos
-	@@juego_a = Juego.new 1,2
-	@@juego_b = Juego.new 1,2
+	@@juego_a = Juego.new 1,5
+	@@juego_b = Juego.new 1,5
+	@@nPosiciones = 5
+	@hideMsg = "hidden"
+	@alerta = "default"
 	erb :"dosjugadores"
 end
 
 get '/dosjugadores/disparar' do
-	posicion = params["posicion"].to_i
-	jugador = params["jugador"].to_i
-	@@nPosiciones = 5
-	@hideMsg = "hidden"
-	@alerta = "default"
-
-	if (jugador=="a")
+	@posicion = params["posicion"].to_s
+	@jugador_objetivo = params["jugador"].to_s
+	@jugador_disparo = ""
+	
+	if (@jugador_objetivo == "a")
+		disparo= @@juego_a.disparar(@posicion)
+		@jugador_disparo = "b"
+	elsif (@jugador_objetivo == "b")
 		disparo= @@juego_b.disparar(@posicion)
+		@jugador_disparo = "a"
 	end
 
 	if (disparo==true)
-		@resultado = "<i class='glyphicon glyphicon-glass'></i> GANASTE"
+		@resultado = "<i class='glyphicon glyphicon-glass'></i> GANO #{ @jugador_disparo }" 
 		@hideJuego = "hidden"
 		@hideMsg = ""
 		@alerta = "success"
-	elsif (disparo==false)
-		@resultado="<i class='glyphicon glyphicon-warning-sign'></i> INTENTA DE NUEVO"
-		@hideJuego = ""
-		@hideMsg = "hidden"
-		@alerta = "warning"
+		"disparo verdadero"
 	else
-		@resultado="GAME OVER, POSICION DE EXITO #{ @@juego.posicion_exito }"
-		@hideJuego = "hidden"
-		@hideMsg = ""
-		@alerta = "danger"
+		"disparo #{ disparo }, #{ @@juego_a.posicion_exito }, jugador objetivo #{ @jugador_objetivo }, jugador que disparo #{@jugador_disparo} "
 	end
 
 end
