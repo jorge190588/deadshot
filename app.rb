@@ -1,18 +1,24 @@
 require 'sinatra'
 require_relative 'lib/juego.rb'
 
+
 get '/'do
 	erb :"menu"    
 end
 
 
 get '/unjugador' do
-	#parametro, 1ro = posicion, 2do = intentos
+
+  #parametro, 1ro = posicion, 2do = intentos
 	@@juego = Juego.new 1,2
 	@@nPosiciones = 5
 	@hideMsg = "hidden"
 	@alerta = "default"
-	erb :"juego"    
+	erb :"juego" 
+end
+
+get '/dosjugadores' do
+  "Dos jugadores"
 end
 
 get '/unjugador/disparar' do
