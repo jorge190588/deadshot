@@ -46,7 +46,7 @@ get '/dosjugadores/disparar/:posicion/:jugador' do
 		@hideMsg = ""
 		@alerta = "success"
 	elsif (disparo==false)
-		@resultado="<i class='glyphicon glyphicon-warning-sign'></i>INTENTA DE NUEVO JUGADOR #{@jugador_disparo.upcase }"
+		@resultado="<i class='glyphicon glyphicon-warning-sign'></i>OH OH FALLASTE!!!, ES TURNO DE #{@jugador_objetivo.upcase }"
 		@hideJuego = ""
 		@hideMsg = ""
 		@alerta = "warning"
