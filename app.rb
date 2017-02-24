@@ -8,7 +8,8 @@ end
 
 
 get '/unjugador' do
-  #parametro, 1ro = posicion, 2do = intentos
+	#parametro, 1ro = posicion, 2do = intentos
+	#si posicion es 0, la posicion de exito es aleatoria.
 	@@juego = Juego.new 1,2
 	@@nPosiciones = 5
 	@hideMsg = "hidden"
@@ -29,6 +30,7 @@ get '/dosjugadores/:jugadorinicia' do
 
 
 	#parametro, 1ro = posicion, 2do = intentos
+	#si posicion es 0, la posicion de exito es aleatoria.
 	@@juego_a = Juego.new 1,5
 	@@juego_b = Juego.new 1,5
 	@@nPosiciones = 5
