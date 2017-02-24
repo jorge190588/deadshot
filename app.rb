@@ -18,7 +18,7 @@ get '/dosjugadores' do
   "Dos jugadores"
 end
 
-get '/disparar' do
+get '/unjugador/disparar' do
 	
   	@posicion = params["p"].to_i
 	disparo= @@juego.disparar(@posicion)
