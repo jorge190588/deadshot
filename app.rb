@@ -1,7 +1,7 @@
 require 'sinatra'
 require_relative 'lib/juego.rb'
 
-get '/' do
+get '/unjugador' do
 	#parametro, 1ro = posicion, 2do = intentos
 	@@juego = Juego.new 1,2
 	@@nPosiciones = 5
@@ -10,7 +10,7 @@ get '/' do
 	erb :"juego"    
 end
 
-get '/disparar' do
+get '/unjugador/disparar' do
 	
   	@posicion = params["p"].to_i
 	disparo= @@juego.disparar(@posicion)
