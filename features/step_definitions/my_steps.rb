@@ -2,7 +2,7 @@
 
 
 Given(/^voy al juego$/) do
-   visit '/'
+   visit '/unjugador'
 end
 
 Then(/^debe decir "(.*?)"$/) do |titulo|
