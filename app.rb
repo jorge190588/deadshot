@@ -8,7 +8,6 @@ end
 
 
 get '/unjugador' do
-
   #parametro, 1ro = posicion, 2do = intentos
 	@@juego = Juego.new 1,2
 	@@nPosiciones = 5
@@ -18,7 +17,37 @@ get '/unjugador' do
 end
 
 get '/dosjugadores' do
-  "Dos jugadores"
+	@@juego_a = Juego.new 1,2
+	@@juego_b = Juego.new 1,2
+	"DOS JUGADORES"
+end
+
+get '/dosjugadores/disparar' do
+	posicion = params["posicion"].to_i
+	jugador = params["jugador"].to_i
+	if (jugador=="a")
+		disparo= @@juego_b.disparar(@posicion)
+	end
+
+	if (disparo==true)
+		@resultado = "<i class='glyphicon glyphicon-glass'></i> GANASTE"
+		@hideJuego = "hidden"
+		@hideMsg = ""
+		@alerta = "success"
+	elsif (disparo==false)
+		@resultado="<i class='glyphicon glyphicon-warning-sign'></i> INTENTA DE NUEVO"
+		@hideJuego = ""
+		@hideMsg = "hidden"
+		@alerta = "warning"
+	else
+		@resultado="GAME OVER, POSICION DE EXITO #{ @@juego.posicion_exito }"
+		@hideJuego = "hidden"
+		@hideMsg = ""
+		@alerta = "danger"
+	end
+
+
+
 end
 
 get '/unjugador/disparar' do
