@@ -3,23 +3,35 @@
 		<title>Deadshot</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<style type="text/css">
-			table#tbl a { display:block; width: 98%; height: 100px; font-size: 3em !important; text-align: center; }
+			table.tbl a { display:block; width: 98%; height: 100px; font-size: 3em !important; text-align: center; }
 			.cen { text-align: center; }
 			.resultado { font-size: 2em; }
 		</style>
+
+		<script
+			  src="https://code.jquery.com/jquery-2.2.4.min.js"
+			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+			  crossorigin="anonymous"></script>
+		
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
 <body>
 
 	<div class="container">
 
 		<h1><i class="glyphicon glyphicon-screenshot"></i> Deadshot</h1>
+		<div class="pull-right">
+			<span type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#myModal">
+			   <i class="glyphicon glyphicon-question-sign"></i> Instrucciones
+			</span>
+		</div>
 
 		<div class="<%= @hideJuego %>">
 			<h2>Intentos <%= @@juego.contador_intentos  %> de  <%= @@juego.total_intentos  %></h2>
 	
 			<h2 class="cen">Haga clic a la posición que quiere disparar</h2>
 
-			<table id="tbl" width="100%" align="center" cellpadding="20" cellspacing="5" border="0">
+			<table id="tbl1" class="tbl" width="100%" align="center" cellpadding="20" cellspacing="5" border="0">
 				<tr>
 
 					<% for i in 1..@@nPosiciones 
@@ -37,6 +49,9 @@
 					<% end %>
 				</tr>
 			</table>
+
+			
+
 		</div>		
 		<hr />
 		<div class="alert alert-<%= @alerta %> cen">
@@ -46,6 +61,31 @@
 		
 	</div>
 
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="myModalLabel">Instrucciones</h4>
+	      </div>
+	      <div class="modal-body">
+		<p>El objetivo del juego es adivinar la posicion donde el premio ha sido almacenado.</p>
+
+		<p><b>Modo 1 Jugador:</b><br />
+		Se cuenta con 5 posiciones de las cuales solo 1 es la que contiene el premio.
+		El premio es asignado aleatoriamente por el sistema y se tiene maximo 2 intentos para adivinar donde se ha almacenado el 			premio. </p>
+		<!--
+		<p><b>Modo 2 Jugadores</b><br />
+		<p>Los jugadores seleccionan manualmente la posicion donde almacenaran el premio en su tablero. 
+		El sistema automaticamente aigna quien inicia el juego. El primer jugador que acierte con la casilla donde esta almacenado el premio del contrincante es el ganador.</p>-->
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
 </body>
 
 </html>
