@@ -20,14 +20,7 @@ When(/^dispado a "(.*?)"$/) do |url|
     click_link(url)
 end
 
-Given(/^voy al juego en modo dos jugadores$/) do
-  visit '/dosjugadores'
+Given(/^voy al juego en modo dos jugadores con opcion de inicio "(.*?)"$/) do |opcion_inicio|
+  visit "/dosjugadores/#{opcion_inicio}"
 end
 
-When(/^el jugador A dispara al jugador "(.*?)" en la posicion (\d+)$/) do |jugador_objetivo, posicion_disparar|
-  visit "/dosjugadores/disparar/#{posicion_disparar}/#{jugador_objetivo}"
-end
-
-When(/^el jugador B dispara al jugador "(.*?)" en la posicion (\d+)$/) do |jugador_objetivo, posicion_disparar|
-    visit "/dosjugadores/disparar/#{posicion_disparar}/#{jugador_objetivo}"
-end
