@@ -56,7 +56,7 @@ get '/dosjugadores/disparar/:posicion/:jugador' do
 	end
 	
 	if (disparo==true)
-		@resultado = "<i class='glyphicon glyphicon-glass'></i>GANO EL JUGADOR #{@jugador_disparo.upcase}"
+		@resultado = "<i class='glyphicon glyphicon-glass'></i> GANO EL JUGADOR #{@jugador_disparo.upcase}<hr /><a href='/dosjugadores/n'><i class='glyphicon glyphicon-star'></i> Nuevo juego</a>  "
 		@hideJuego = "hidden"
 		@hideMsg = ""
 		@alerta = "success"
