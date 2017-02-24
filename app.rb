@@ -17,14 +17,19 @@ get '/unjugador' do
 end
 
 get '/dosjugadores' do
+	#parametro, 1ro = posicion, 2do = intentos
 	@@juego_a = Juego.new 1,2
 	@@juego_b = Juego.new 1,2
-	"DOS JUGADORES"
+	erb :"dosjugadores"
 end
 
 get '/dosjugadores/disparar' do
 	posicion = params["posicion"].to_i
 	jugador = params["jugador"].to_i
+	@@nPosiciones = 5
+	@hideMsg = "hidden"
+	@alerta = "default"
+
 	if (jugador=="a")
 		disparo= @@juego_b.disparar(@posicion)
 	end
@@ -45,8 +50,6 @@ get '/dosjugadores/disparar' do
 		@hideMsg = ""
 		@alerta = "danger"
 	end
-
-
 
 end
 
