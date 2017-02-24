@@ -23,6 +23,7 @@ get '/dosjugadores' do
 	@@nPosiciones = 5
 	@hideMsg = "hidden"
 	@alerta = "default"
+	@posicion = 0
 	erb :"dosjugadores"
 end
 
@@ -32,7 +33,7 @@ get '/dosjugadores/disparar' do
 	@jugador_disparo = ""
 	
 	if (@jugador_objetivo == "a")
-		disparo= @@juego_a.disparar(@posicion)
+		disparo= @@juego_a.disparar(@posicion)		
 		@jugador_disparo = "b"
 	elsif (@jugador_objetivo == "b")
 		disparo= @@juego_b.disparar(@posicion)
