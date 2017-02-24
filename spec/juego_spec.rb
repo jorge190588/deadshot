@@ -72,4 +72,20 @@ describe "disparar en modo dos jugadores con 5 intentos" do
 		juego_a.disparar(2).should == false
 	end
 
+	it "jugador A dispara en posicion 2, jugador B dispara en posicion 2, jugador A dispara en posicion 1, Gana jugador A" do
+		juego_a = Juego.new 1,5
+		juego_b = Juego.new 1,5
+		juego_b.disparar(2)
+		juego_a.disparar(2)
+		juego_b.disparar(1).should == true
+	end
+
+	it "jugador B dispara en posicion 2, jugador A dispara en posicion 2, jugador B dispara en posicion 1, Gana jugador B" do
+		juego_a = Juego.new 1,5
+		juego_b = Juego.new 1,5
+		juego_b.disparar(2)
+		juego_a.disparar(2)
+		juego_b.disparar(1).should == true
+	end
+
 end
