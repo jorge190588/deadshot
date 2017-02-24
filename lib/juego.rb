@@ -1,4 +1,5 @@
 class Juego
+	@esta_finalizado = false
 	def initialize posicion_exito,numero_intentos
 		iniciar posicion_exito,numero_intentos
 	end
@@ -9,9 +10,12 @@ class Juego
 		else
 			@contador_intentos += 1
 			if (posicion == @posicion_exito)
+				@esta_finalizado=true
 				return true
 			elsif (@contador_intentos==@total_intentos)
 				return -1
+			elsif (@esta_finalizado==true)
+				return -2
 			else
 				return false
 			end
