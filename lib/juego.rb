@@ -1,6 +1,6 @@
 class Juego
-	def initialize posicion_exito
-		iniciar posicion_exito
+	def initialize posicion_exito,numero_intentos
+		iniciar posicion_exito,numero_intentos
 	end
 
 	def disparar posicion
@@ -26,9 +26,9 @@ class Juego
 		return @total_intentos
 	end
 
-	def iniciar posicion_exito
+	def iniciar posicion_exito,numero_intentos
 		@contador_intentos = 0
-		@total_intentos = 2
+		@total_intentos = numero_intentos
 		if (posicion_exito==0)
 			@posicion_exito = rand(1..5)
 		else

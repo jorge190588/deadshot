@@ -1,4 +1,4 @@
-Feature: Probar el juego
+Feature: Probar el juego para un jugador
 
 
 Scenario: Portada
